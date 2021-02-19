@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import ContactForm from '../ContactForm/ContactForm';
 import Filter from '../Filter/Filter';
 import ContactList from '../ContactList/ContactList';
@@ -16,7 +18,10 @@ class Phonebook extends Component {
     filter: this.props.filter,
   };
 
-  changeFilterInputValue = event => this.setState({ filter: event.target.value });
+  changeFilterInputValue = event => {
+    console.log(this.state.contacts);
+    this.setState({ filter: event.target.value });
+  };
 
   handleFormSubmit = data => this.setState({ contacts: [...this.state.contacts, data] });
 
@@ -35,5 +40,16 @@ class Phonebook extends Component {
     );
   }
 }
+
+Phonebook.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  filter: PropTypes.string.isRequired,
+};
 
 export default Phonebook;

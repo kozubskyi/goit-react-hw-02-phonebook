@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import './ContactList.scss';
 
 const ContactList = ({ contacts, filter, deleteContact }) => {
@@ -20,6 +22,10 @@ const ContactList = ({ contacts, filter, deleteContact }) => {
         })}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;

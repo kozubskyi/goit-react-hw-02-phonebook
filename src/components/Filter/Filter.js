@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Filter.scss';
 
 const Filter = ({ filter, changeFilterInputValue }) => {
@@ -20,6 +22,10 @@ const Filter = ({ filter, changeFilterInputValue }) => {
       ></input>
     </>
   );
+};
+
+Filter.propTypes = {
+  changeFilterInputValue: PropTypes.func.isRequired,
 };
 
 export default Filter;
