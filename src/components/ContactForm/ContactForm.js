@@ -54,6 +54,7 @@ class ContactForm extends Component {
           onChange={this.changeInputValue}
           required
           autoComplete="off"
+          pattern="^[ 0-9]+$"
         ></input>
         <button className="btn" type="submit">
           Add contact
